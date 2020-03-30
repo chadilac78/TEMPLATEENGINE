@@ -1,14 +1,17 @@
-const Employee = require('../lib/Employee.js')
+const Employee = require('../lib/Employee')
+const inquirer = require('inquirer');
 
-class Engineer {
-    constructor(GitHubUser) {
-        Employee.call(this, name, id, email);
-        console.log(name, id, email);
-        this.GitHubUser = GitHubUser;
+class Engineer extends Employee {
+    constructor(name, id, email, github) {
+        super(name, id, email)
+        this.github = github;
     }
-
-
+    getGithub() {
+        return this.github
+    }
+    getRole() {
+        return "Engineer"
+    }
 }
-
 
 module.exports = Engineer;
