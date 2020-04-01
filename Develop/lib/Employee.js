@@ -24,5 +24,9 @@ class Employee {
 
     }
 
+    getRole() {
+        return "Employee"
+    }
+
 }
 module.exports = Employee;
