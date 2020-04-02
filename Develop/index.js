@@ -7,8 +7,8 @@ const Intern = require("C:/Users/chadi/Desktop/TEMPLATEENGINE/Develop/lib/Intern
 const Manager = require("C:/Users/chadi/Desktop/TEMPLATEENGINE/Develop/lib/Manager.js");
 const render = require("C:/Users/chadi/Desktop/TEMPLATEENGINE/Develop/lib/htmlRenderer.js");
 
-const OUTPUT_DIR = path.resolve(__dirname, "templates")
-const outputpath = path.join(OUTPUT_DIR, "./Develop/templates/team.html");
+const OUTPUT_DIR = path.resolve(__dirname, "output")
+const outputpath = path.join(OUTPUT_DIR, "team.html");
 
 
 
@@ -107,25 +107,25 @@ function init() {
 
 
         } else {
-            // perform action if no
+            console.log(employees)
 
-            console.log("Thanks Goodbye")
-            exit()
-
+            exit(employees)
         }
-
-
 
     })
 
     function exit(employees) {
-        fs.writeFile("./templates/team.html", render(employees), function (err) {
+        fs.writeFile(outputpath, render(employees), function (err) {
             if (err) return console.log(err);
-            console.log("team.html file successfully created!");
-        })
-    }
 
+        })
+
+
+    }
 }
+
+
+
 
 
 
@@ -166,10 +166,10 @@ init();
 //     init()
 // }
 
-// const exit = async (data) => {
-//     //     render(employees.outputpath);
+const exit = async (data) => {
+    render(employees.outputpath);
 
-// }
+}
 
 
 
